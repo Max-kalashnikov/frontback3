@@ -1,5 +1,5 @@
-const APP_CACHE = 'peripheral-app-shell-v1';
-const DYNAMIC_CACHE = 'peripheral-dynamic-v1';
+const APP_CACHE = 'peripheral-app-shell-v2';
+const DYNAMIC_CACHE = 'peripheral-dynamic-v2';
 
 const ASSETS = [
   '/',
@@ -55,6 +55,19 @@ self.addEventListener('fetch', (event) => {
           return response;
         })
         .catch(() => caches.match(event.request).then((cached) => cached || caches.match('/content/home.html')))
+    );
+    return;
+  }
+
+  if (event.request.mode === 'navigate' || event.request.destination === 'document') {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          const copy = response.clone();
+          caches.open(APP_CACHE).then((cache) => cache.put(event.request, copy));
+          return response;
+        })
+        .catch(() => caches.match(event.request).then((cached) => cached || caches.match('/index.html')))
     );
     return;
   }
