@@ -1,0 +1,26 @@
+{
+  "name": "peripheral-planner-pwa",
+  "version": "1.0.0",
+  "description": "PWA project for frontend/backend practical classes 13-18: offline tasks, Web App Manifest, App Shell, WebSocket, Push and reminders.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "pwa",
+    "service-worker",
+    "socket.io",
+    "push",
+    "reminders"
+  ],
+  "author": "Max Kalashnikov",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1",
+    "web-push": "^3.6.7"
+  }
+}

@@ -1,0 +1,6 @@
+node_modules/
+npm-debug.log*
+.env
+localhost.pem
+localhost-key.pem
+.DS_Store

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#167466">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="PWA-планировщик задач и напоминаний по компьютерной периферии">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+  <link rel="icon" href="/icons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Peripheral Planner</title>
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">PWA + WebSocket + Push</p>
+      <h1>Peripheral Planner</h1>
+      <p class="lead">Задачи, покупки и напоминания для клавиатур, мышей, гарнитур и другой компьютерной периферии.</p>
+    </div>
+    <div class="status-panel" aria-live="polite">
+      <span id="connection-status" class="status-dot">Сервер: подключение...</span>
+      <span id="offline-status" class="status-dot">Сеть: проверка...</span>
+    </div>
+  </header>
+
+  <nav class="tabs" aria-label="Основная навигация">
+    <button id="home-btn" class="tab active" type="button" data-page="home">Задачи</button>
+    <button id="catalog-btn" class="tab" type="button" data-page="catalog">Периферия</button>
+    <button id="about-btn" class="tab" type="button" data-page="about">О нас</button>
+  </nav>
+
+  <main id="app-content" class="app-content" tabindex="-1"></main>
+
+  <footer class="app-footer">
+    <div class="push-actions">
+      <button id="enable-push" class="button success" type="button">Включить уведомления</button>
+      <button id="disable-push" class="button danger" type="button" hidden>Отключить уведомления</button>
+    </div>
+    <p>App Shell кэшируется Service Worker, данные задач сохраняются в localStorage.</p>
+  </footer>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

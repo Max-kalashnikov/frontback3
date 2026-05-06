@@ -1,0 +1,27 @@
+<section class="workspace">
+  <div class="tool-panel">
+    <h2>Новая задача</h2>
+    <form id="note-form" class="task-form">
+      <label for="note-input">Что нужно сделать</label>
+      <input type="text" id="note-input" placeholder="Например: проверить свитчи клавиатуры" required>
+      <button class="button primary" type="submit">Добавить</button>
+    </form>
+
+    <form id="reminder-form" class="task-form">
+      <h3>Задача с напоминанием</h3>
+      <label for="reminder-text">Текст напоминания</label>
+      <input type="text" id="reminder-text" placeholder="Например: заказать коврик XL" required>
+      <label for="reminder-time">Дата и время</label>
+      <input type="datetime-local" id="reminder-time" required>
+      <button class="button success" type="submit">Добавить с напоминанием</button>
+    </form>
+  </div>
+
+  <section class="list-panel">
+    <div class="list-heading">
+      <h2>Список задач</h2>
+      <button id="clear-notes" class="button ghost" type="button">Очистить</button>
+    </div>
+    <ul id="notes-list" class="notes-list"></ul>
+  </section>
+</section>
