@@ -91,6 +91,7 @@
   - `POST /unsubscribe`
   - `GET /vapid-public-key`
 - Для push используется библиотека `web-push`.
+- В `server.js` добавлены постоянные demo VAPID-ключи; при необходимости их можно заменить через переменные окружения `VAPID_PUBLIC_KEY` и `VAPID_PRIVATE_KEY`.
 
 Основные файлы:
 

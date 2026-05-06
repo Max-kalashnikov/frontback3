@@ -13,12 +13,17 @@ const app = express();
 const PORT = Number(process.env.PORT || 3001);
 const PUBLIC_DIR = path.join(__dirname, 'public');
 
+const DEFAULT_VAPID_KEYS = {
+  publicKey: 'BPBOn2hKHRFkHqQISPHeJgQE26Rmeoq0hxwca7RRmb27v8SFgYb9eUD3vXmDyBKonTtVd5FJId7xpqTkw3sJ7LI',
+  privateKey: 'YCodOoFOFNMjHsyLMW1VbE-vObnoNJi66NEGdB9pC8E'
+};
+
 const vapidKeys = process.env.VAPID_PUBLIC_KEY && process.env.VAPID_PRIVATE_KEY
   ? {
       publicKey: process.env.VAPID_PUBLIC_KEY,
       privateKey: process.env.VAPID_PRIVATE_KEY
     }
-  : webpush.generateVAPIDKeys();
+  : DEFAULT_VAPID_KEYS;
 
 webpush.setVapidDetails(
   process.env.VAPID_SUBJECT || 'mailto:student@example.com',
